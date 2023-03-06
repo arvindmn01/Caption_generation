@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Predictor</title>
+  </head>
+  <body>
+    <h1>Caption Generation using deep learning</h1>
+    <p> This web page help you to get the AI generated caption for your image.</p>
+    <p> You need to upload image file and click on Generate caption It will return the Caption.</p>
+    <br>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*">
+      <br><br>
+      <input type="submit" value="Generate Caption">
+    </form>
+    
+    {%if prediction%}
+      <p> <b>Caption:</b> {{prediction}}
+      <br>
+      <img src="data:image/jpeg;base64,{{ image }}" alt="Uploaded image">
+    {% endif %}
+  </body>
+</html>
